@@ -28,11 +28,22 @@ public sealed class PlayerInput : MonoBehaviour
         actions.Player.Move.canceled += OnMove;
 
         actions.Player.Attack.performed += OnAttack;
+        actions.Player.Attack.canceled += OnAttack;
+
         actions.Player.Interact.performed += OnInteract;
+        actions.Player.Interact.canceled += OnInteract;
+
         actions.Player.Crouch.performed += OnCrouch;
+        actions.Player.Crouch.canceled += OnCrouch;
+
         actions.Player.Jump.performed += OnJump;
+        actions.Player.Jump.canceled += OnJump;
+
         actions.Player.Previous.performed += OnPrev;
+        actions.Player.Previous.canceled += OnPrev;
+
         actions.Player.Next.performed += OnNext;
+        actions.Player.Next.canceled += OnNext;
 
         actions.Player.Enable();
     }
@@ -48,11 +59,22 @@ public sealed class PlayerInput : MonoBehaviour
         actions.Player.Move.canceled -= OnMove;
 
         actions.Player.Attack.performed -= OnAttack;
+        actions.Player.Attack.canceled -= OnAttack;
+
         actions.Player.Interact.performed -= OnInteract;
+        actions.Player.Interact.canceled -= OnInteract;
+
         actions.Player.Crouch.performed -= OnCrouch;
+        actions.Player.Crouch.canceled -= OnCrouch;
+
         actions.Player.Jump.performed -= OnJump;
+        actions.Player.Jump.canceled -= OnJump;
+
         actions.Player.Previous.performed -= OnPrev;
+        actions.Player.Previous.canceled -= OnPrev;
+
         actions.Player.Next.performed -= OnNext;
+        actions.Player.Next.canceled -= OnNext;
 
         actions.Player.Disable();
     }
