@@ -1,6 +1,5 @@
 ## PlayerInput + PlayerCamera: High-Level Design & Extension Guide
 Pairs extremely well with [my Photon Unity Network Scaffold](https://github.com/havenfricke/PUN2_Net_Singleton).
-
 This repository is meant for fast iteration.  
 The two scripts shown here form a base interaction pattern that other gameplay scripts will follow.
 
@@ -33,12 +32,12 @@ Player Input Devices -> PlayerInput -> Feature Scripts (Camera, Movement, Combat
 
 ## Generating the Required C# Input Actions Class
 
-This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by `PlayerInput`.
+This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by PlayerInput.
 
 ### How to Generate It
 
 1. Open the Input Actions asset  
-   - In the Project window, double-click your `.inputactions` file (for example: `InputSystem_Actions.inputactions`).
+   - In the Project window, double-click your .inputactions file (for example: InputSystem_Actions.inputactions).
 
 2. Enable C# class generation  
    - In the Inspector, check **Generate C# Class**.
@@ -46,13 +45,13 @@ This system depends on a generated C# class from Unity’s Input System. This cl
 
 3. Apply and save  
    - Click **Apply**.
-   - Unity will generate a `.cs` file next to the input actions asset.
+   - Unity will generate a .cs file next to the input actions asset.
 
 ### What This Class Does
 
-- Defines action maps like `Player`
-- Exposes actions like `Look`, `Move`, `Jump`, etc.
-- Allows `PlayerInput` to subscribe to input events using code
+- Defines action maps like Player
+- Exposes actions like Look, Move, Jump, etc.
+- Allows PlayerInput to subscribe to input events using code
 
 ### Why This Matters
 
@@ -60,12 +59,12 @@ This system depends on a generated C# class from Unity’s Input System. This cl
 - Avoids string-based lookups
 - Makes input routing consistent across the project
 
-Once generated, this class is referenced only by `PlayerInput`.  
-Feature scripts (like `PlayerCamera`) never depend on it directly.
+Once generated, this class is referenced only by PlayerInput.  
+Feature scripts (like PlayerCamera) never depend on it directly.
 
 
 
-## How These Two Scripts Work Together
+### How These Two Scripts Work Together
 
 - PlayerInput listens for actions like Look
 - When input occurs, it forwards the data
@@ -80,7 +79,7 @@ This keeps responsibilities clean and predictable.
 
 ---
 
-## Why This Exists as a Repo Pattern
+### Why This Exists as a Repo Pattern
 
 This setup is meant to be:
 - Easy to drop into a new project
@@ -91,7 +90,7 @@ You can add or remove feature scripts without changing how input works overall.
 
 ---
 
-## Extensibility: The Intended Pattern
+### Extensibility: The Intended Pattern
 
 PlayerCamera is not special.  
 It is simply the first example of a pattern.
@@ -111,7 +110,7 @@ Each of these scripts will:
 
 ---
 
-## The Rule of Communication
+### The Rule of Communication
 
 Only one direction is allowed:
 
@@ -127,7 +126,7 @@ They only respond to method calls.
 
 ---
 
-## Why This Scales Well
+### Why This Scales Well
 
 - Input changes do not affect gameplay code
 - Gameplay code can be reused or removed easily
@@ -141,7 +140,7 @@ This pattern also mirrors common professional setups:
 
 ---
 
-## Mental Model to Keep
+### Mental Model to Keep
 
 PlayerInput is the brain stem.  
 Feature scripts are muscles.
@@ -151,7 +150,7 @@ Feature scripts decide how it happens.
 
 ---
 
-## Summary
+### Summary
 
 - PlayerInput is the single entry point for player input
 - PlayerCamera is an example of a modular feature
