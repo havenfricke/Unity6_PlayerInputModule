@@ -3,8 +3,6 @@ Pairs extremely well with [my Photon Unity Network Scaffold](https://github.com/
 This repository is meant for fast iteration.  
 The two scripts shown here form a base interaction pattern that other gameplay scripts will follow.
 
-This document explains that pattern from a 1000-foot view, not line-by-line.
-
 ---
 
 ### The Big Picture
