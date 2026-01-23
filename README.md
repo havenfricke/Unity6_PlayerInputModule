@@ -1,6 +1,5 @@
 ## PlayerInput + PlayerCamera: High-Level Design & Extension Guide
-
-
+Pairs extremely well with [my Photon Unity Network Scaffold](https://github.com/havenfricke/PUN2_Net_Singleton).
 
 This repository is meant for fast iteration.  
 The two scripts shown here form a base interaction pattern that other gameplay scripts will follow.
