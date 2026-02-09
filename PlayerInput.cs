@@ -291,165 +291,165 @@ public sealed class PlayerInput : MonoBehaviour
     }
 
     // Main InputType method
-private void SwitchInputType()
-{
-    switch (inputType)
+    private void SwitchInputType()
     {
-        case InputType.Player:
+        switch (inputType)
+        {
+            case InputType.Player:
 
-            Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.Locked;
 
-            actions.UI.Navigate.performed -= OnNavigate;
-            actions.UI.Navigate.canceled -= OnNavigate;
+                actions.UI.Navigate.performed -= OnNavigate;
+                actions.UI.Navigate.canceled -= OnNavigate;
 
-            actions.UI.Submit.performed -= OnSubmit;
-            actions.UI.Submit.canceled -= OnSubmit;
+                actions.UI.Submit.performed -= OnSubmit;
+                actions.UI.Submit.canceled -= OnSubmit;
 
-            actions.UI.Cancel.performed -= OnCancel;
-            actions.UI.Cancel.canceled -= OnCancel;
+                actions.UI.Cancel.performed -= OnCancel;
+                actions.UI.Cancel.canceled -= OnCancel;
 
-            actions.UI.Point.performed -= OnPoint;
-            actions.UI.Point.canceled -= OnPoint;
+                actions.UI.Point.performed -= OnPoint;
+                actions.UI.Point.canceled -= OnPoint;
 
-            actions.UI.Click.performed -= OnClick;
-            actions.UI.Click.canceled -= OnClick;
+                actions.UI.Click.performed -= OnClick;
+                actions.UI.Click.canceled -= OnClick;
 
-            actions.UI.RightClick.performed -= OnRightClick;
-            actions.UI.RightClick.canceled -= OnRightClick;
+                actions.UI.RightClick.performed -= OnRightClick;
+                actions.UI.RightClick.canceled -= OnRightClick;
 
-            actions.UI.MiddleClick.performed -= OnMiddleClick;
-            actions.UI.MiddleClick.canceled -= OnMiddleClick;
+                actions.UI.MiddleClick.performed -= OnMiddleClick;
+                actions.UI.MiddleClick.canceled -= OnMiddleClick;
 
-            actions.UI.ScrollWheel.performed -= OnScrollWheel;
-            actions.UI.ScrollWheel.canceled -= OnScrollWheel;
+                actions.UI.ScrollWheel.performed -= OnScrollWheel;
+                actions.UI.ScrollWheel.canceled -= OnScrollWheel;
 
-            actions.UI.TrackedDevicePosition.performed -= OnTrackedDevicePosition;
-            actions.UI.TrackedDevicePosition.canceled -= OnTrackedDevicePosition;
+                actions.UI.TrackedDevicePosition.performed -= OnTrackedDevicePosition;
+                actions.UI.TrackedDevicePosition.canceled -= OnTrackedDevicePosition;
 
-            actions.UI.TrackedDeviceOrientation.performed -= OnTrackedDeviceOrientation;
-            actions.UI.TrackedDeviceOrientation.canceled -= OnTrackedDeviceOrientation;
+                actions.UI.TrackedDeviceOrientation.performed -= OnTrackedDeviceOrientation;
+                actions.UI.TrackedDeviceOrientation.canceled -= OnTrackedDeviceOrientation;
 
-            // Once added to action map, uncomment.
-            // actions.UI.Resume.performed -= OnResume;
-            // actions.UI.Resume.canceled -= OnResume;
+                // Once added to action map, uncomment.
+                // actions.UI.Resume.performed -= OnResume;
+                // actions.UI.Resume.canceled -= OnResume;
 
-            actions.UI.Disable();
+                actions.UI.Disable();
 
-            actions.Player.Look.performed += OnLook;
-            actions.Player.Look.canceled += OnLook;
+                actions.Player.Look.performed += OnLook;
+                actions.Player.Look.canceled += OnLook;
 
-            actions.Player.Move.performed += OnMove;
-            actions.Player.Move.canceled += OnMove;
+                actions.Player.Move.performed += OnMove;
+                actions.Player.Move.canceled += OnMove;
 
-            actions.Player.Attack.performed += OnAttack;
-            actions.Player.Attack.canceled += OnAttack;
+                actions.Player.Attack.performed += OnAttack;
+                actions.Player.Attack.canceled += OnAttack;
 
-            actions.Player.Interact.performed += OnInteract;
-            actions.Player.Interact.canceled += OnInteract;
+                actions.Player.Interact.performed += OnInteract;
+                actions.Player.Interact.canceled += OnInteract;
 
-            actions.Player.Crouch.performed += OnCrouch;
-            actions.Player.Crouch.canceled += OnCrouch;
+                actions.Player.Crouch.performed += OnCrouch;
+                actions.Player.Crouch.canceled += OnCrouch;
 
-            actions.Player.Jump.performed += OnJump;
-            actions.Player.Jump.canceled += OnJump;
+                actions.Player.Jump.performed += OnJump;
+                actions.Player.Jump.canceled += OnJump;
 
-            actions.Player.Previous.performed += OnPrev;
-            actions.Player.Previous.canceled += OnPrev;
+                actions.Player.Previous.performed += OnPrev;
+                actions.Player.Previous.canceled += OnPrev;
 
-            actions.Player.Next.performed += OnNext;
-            actions.Player.Next.canceled += OnNext;
+                actions.Player.Next.performed += OnNext;
+                actions.Player.Next.canceled += OnNext;
 
-            actions.Player.Sprint.performed += OnSprint;
-            actions.Player.Sprint.canceled += OnSprint;
+                actions.Player.Sprint.performed += OnSprint;
+                actions.Player.Sprint.canceled += OnSprint;
 
-            // Once added to action map, uncomment.
-            // actions.Player.Pause.performed -= OnPause;
-            // actions.Player.Pause.canceled -= OnPause;
+                // Once added to action map, uncomment.
+                // actions.Player.Pause.performed -= OnPause;
+                // actions.Player.Pause.canceled -= OnPause;
 
-            actions.Player.Enable();
+                actions.Player.Enable();
 
-            inputSwitchGate = false;
-            break;
-            
-        case InputType.UI:
+                inputSwitchGate = false;
+                break;
+                
+            case InputType.UI:
 
-            Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
 
-            actions.Player.Look.performed -= OnLook;
-            actions.Player.Look.canceled -= OnLook;
+                actions.Player.Look.performed -= OnLook;
+                actions.Player.Look.canceled -= OnLook;
 
-            actions.Player.Move.performed -= OnMove;
-            actions.Player.Move.canceled -= OnMove;
+                actions.Player.Move.performed -= OnMove;
+                actions.Player.Move.canceled -= OnMove;
 
-            actions.Player.Attack.performed -= OnAttack;
-            actions.Player.Attack.canceled -= OnAttack;
+                actions.Player.Attack.performed -= OnAttack;
+                actions.Player.Attack.canceled -= OnAttack;
 
-            actions.Player.Interact.performed -= OnInteract;
-            actions.Player.Interact.canceled -= OnInteract;
+                actions.Player.Interact.performed -= OnInteract;
+                actions.Player.Interact.canceled -= OnInteract;
 
-            actions.Player.Crouch.performed -= OnCrouch;
-            actions.Player.Crouch.canceled -= OnCrouch;
+                actions.Player.Crouch.performed -= OnCrouch;
+                actions.Player.Crouch.canceled -= OnCrouch;
 
-            actions.Player.Jump.performed -= OnJump;
-            actions.Player.Jump.canceled -= OnJump;
+                actions.Player.Jump.performed -= OnJump;
+                actions.Player.Jump.canceled -= OnJump;
 
-            actions.Player.Previous.performed -= OnPrev;
-            actions.Player.Previous.canceled -= OnPrev;
+                actions.Player.Previous.performed -= OnPrev;
+                actions.Player.Previous.canceled -= OnPrev;
 
-            actions.Player.Next.performed -= OnNext;
-            actions.Player.Next.canceled -= OnNext;
+                actions.Player.Next.performed -= OnNext;
+                actions.Player.Next.canceled -= OnNext;
 
-            actions.Player.Sprint.performed -= OnSprint;
-            actions.Player.Sprint.canceled -= OnSprint;
+                actions.Player.Sprint.performed -= OnSprint;
+                actions.Player.Sprint.canceled -= OnSprint;
 
-            // Once added to action map, uncomment.
-            // actions.Player.Pause.performed -= OnPause;
-            // actions.Player.Pause.canceled -= OnPause;
+                // Once added to action map, uncomment.
+                // actions.Player.Pause.performed -= OnPause;
+                // actions.Player.Pause.canceled -= OnPause;
 
-            actions.Player.Disable();
+                actions.Player.Disable();
 
-            actions.UI.Navigate.performed += OnNavigate;
-            actions.UI.Navigate.canceled += OnNavigate;
+                actions.UI.Navigate.performed += OnNavigate;
+                actions.UI.Navigate.canceled += OnNavigate;
 
-            actions.UI.Submit.performed += OnSubmit;
-            actions.UI.Submit.canceled += OnSubmit;
+                actions.UI.Submit.performed += OnSubmit;
+                actions.UI.Submit.canceled += OnSubmit;
 
-            actions.UI.Cancel.performed += OnCancel;
-            actions.UI.Cancel.canceled += OnCancel;
+                actions.UI.Cancel.performed += OnCancel;
+                actions.UI.Cancel.canceled += OnCancel;
 
-            actions.UI.Point.performed += OnPoint;
-            actions.UI.Point.canceled += OnPoint;
+                actions.UI.Point.performed += OnPoint;
+                actions.UI.Point.canceled += OnPoint;
 
-            actions.UI.Click.performed += OnClick;
-            actions.UI.Click.canceled += OnClick;
+                actions.UI.Click.performed += OnClick;
+                actions.UI.Click.canceled += OnClick;
 
-            actions.UI.RightClick.performed += OnRightClick;
-            actions.UI.RightClick.canceled += OnRightClick;
+                actions.UI.RightClick.performed += OnRightClick;
+                actions.UI.RightClick.canceled += OnRightClick;
 
-            actions.UI.MiddleClick.performed += OnMiddleClick;
-            actions.UI.MiddleClick.canceled += OnMiddleClick;
+                actions.UI.MiddleClick.performed += OnMiddleClick;
+                actions.UI.MiddleClick.canceled += OnMiddleClick;
 
-            actions.UI.ScrollWheel.performed += OnScrollWheel;
-            actions.UI.ScrollWheel.canceled += OnScrollWheel;
+                actions.UI.ScrollWheel.performed += OnScrollWheel;
+                actions.UI.ScrollWheel.canceled += OnScrollWheel;
 
-            actions.UI.TrackedDevicePosition.performed += OnTrackedDevicePosition;
-            actions.UI.TrackedDevicePosition.canceled += OnTrackedDevicePosition;
+                actions.UI.TrackedDevicePosition.performed += OnTrackedDevicePosition;
+                actions.UI.TrackedDevicePosition.canceled += OnTrackedDevicePosition;
 
-            actions.UI.TrackedDeviceOrientation.performed += OnTrackedDeviceOrientation;
-            actions.UI.TrackedDeviceOrientation.canceled += OnTrackedDeviceOrientation;
+                actions.UI.TrackedDeviceOrientation.performed += OnTrackedDeviceOrientation;
+                actions.UI.TrackedDeviceOrientation.canceled += OnTrackedDeviceOrientation;
 
-            // Once added to action map, uncomment.
-            // actions.UI.Resume.performed += OnResume;
-            // actions.UI.Resume.canceled += OnResume;
+                // Once added to action map, uncomment.
+                // actions.UI.Resume.performed += OnResume;
+                // actions.UI.Resume.canceled += OnResume;
 
-            actions.UI.Enable();
+                actions.UI.Enable();
 
-            inputSwitchGate = false;
-            break;
+                inputSwitchGate = false;
+                break;
 
-        default:
-            Debug.LogError("[PlayerInput] Enumerator value out of bounds or does not exist for available action maps.");
-            return;
+            default:
+                Debug.LogError("[PlayerInput] Enumerator value out of bounds or does not exist for available action maps.");
+                return;
+        }
     }
-}
 }
