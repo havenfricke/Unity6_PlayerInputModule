@@ -1,11 +1,11 @@
-## PlayerInput + PlayerCamera: High-Level Design & Extension Guide
+### PlayerInput + PlayerCamera: High-Level Design & Extension Guide
 Pairs extremely well with [my Photon Unity Network Scaffold](https://github.com/havenfricke/PUN2_Net_Singleton).
 This repository is meant for fast iteration.  
 The two scripts shown here form a base interaction pattern that other gameplay scripts will follow.
 
 ---
 
-## Generating the Required C# Input Actions Class
+### Generating the Required C# Input Actions Class
 
 This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by PlayerInput.
 
@@ -81,7 +81,7 @@ Both maps must exist in the generated `InputSystem_Actions.cs` file.
 
 ---
 
-## How Player/UI Switching Works
+### How Player/UI Switching Works
 
 The `PlayerInput` script handles all input routing and toggles between action maps using two actions:
 
