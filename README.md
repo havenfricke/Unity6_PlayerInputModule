@@ -5,6 +5,80 @@ The two scripts shown here form a base interaction pattern that other gameplay s
 
 ---
 
+## Generating the Required C# Input Actions Class
+
+This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by PlayerInput.
+
+### How to Generate It
+
+1. Open the Input Actions asset  
+   - In the Project window, double-click your .inputactions file (for example: InputSystem_Actions.inputactions).
+
+2. Enable C# class generation  
+   - In the Inspector, check **Generate C# Class**.
+   - Choose a namespace if desired.
+
+3. Apply and save  
+   - Click **Apply**.
+   - Unity will generate a .cs file next to the input actions asset.
+
+---
+
+## Input Maps and Switching (Unity 6)
+
+Uses two independent action maps that the `PlayerInput` script can switch between at runtime.
+
+### Player Action Map
+Gameplay controls:
+- Look (Vector2)
+- Move (Vector2)
+- Jump
+- Crouch
+- Sprint
+- Attack
+- Interact
+- Previous
+- Next
+- **Pause** (add this to your action map)
+
+### UI Action Map
+Unity’s default UI navigation actions:
+- Navigate (Vector2)
+- Submit
+- Cancel
+- Point (Vector2)
+- Click
+- RightClick
+- MiddleClick
+- ScrollWheel (Vector2)
+- TrackedDevicePosition
+- TrackedDeviceOrientation
+- **Resume** (add this to your action map)
+
+Both maps must exist in the generated `InputSystem_Actions.cs` file.
+
+---
+
+## How Player/UI Switching Works
+
+The `PlayerInput` script handles all input routing and toggles between action maps using two actions:
+
+- **Pause** → switches from Player → UI  
+- **Resume** → switches from UI → Player  
+
+Switching steps:
+1. Pause/Resume action fires  
+2. `inputSwitchGate` is set  
+3. `Update()` calls `SwitchInputType()`  
+4. The correct action map is enabled  
+5. The other map is disabled  
+6. Cursor lock state updates  
+7. `inputSwitchGate` resets  
+
+This prevents mid-frame conflicts and ensures clean transitions.
+
+---
+
 ### The Big Picture
 
 The system is split into two clear layers:
@@ -25,25 +99,7 @@ Think of it like this:
 
 Player Input Devices -> PlayerInput -> Feature Scripts (Camera, Movement, Combat, etc.)
 
-
 ---
-
-## Generating the Required C# Input Actions Class
-
-This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by PlayerInput.
-
-### How to Generate It
-
-1. Open the Input Actions asset  
-   - In the Project window, double-click your .inputactions file (for example: InputSystem_Actions.inputactions).
-
-2. Enable C# class generation  
-   - In the Inspector, check **Generate C# Class**.
-   - Choose a namespace if desired.
-
-3. Apply and save  
-   - Click **Apply**.
-   - Unity will generate a .cs file next to the input actions asset.
 
 ### What This Class Does
 
