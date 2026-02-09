@@ -22,6 +22,9 @@ This system depends on a generated C# class from Unity’s Input System. This cl
    - Click **Apply**.
    - Unity will generate a .cs file next to the input actions asset.
 
+Once generated, this class is referenced only by PlayerInput.  
+Feature scripts (like PlayerCamera) never depend on it directly.
+
 ---
 
 ### The Big Picture
@@ -109,9 +112,6 @@ This prevents mid-frame conflicts and ensures clean transitions.
 - Keeps input strongly typed and compile-safe
 - Avoids string-based lookups
 - Makes input routing consistent across the project
-
-Once generated, this class is referenced only by PlayerInput.  
-Feature scripts (like PlayerCamera) never depend on it directly.
 
 ### How These Two Scripts Work Together
 
