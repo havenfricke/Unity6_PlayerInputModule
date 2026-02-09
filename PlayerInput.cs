@@ -25,9 +25,11 @@ public sealed class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        playerCamera = GetComponent<PlayerCamera>();
+        if (playerCamera == null)
+            playerCamera = GetComponent<PlayerCamera>();
 
-        actions = new InputSystem_Actions();
+        if (actions == null)
+            actions = new InputSystem_Actions();
     }
 
     private void OnEnable()
