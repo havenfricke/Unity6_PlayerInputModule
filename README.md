@@ -24,6 +24,28 @@ This system depends on a generated C# class from Unity’s Input System. This cl
 
 ---
 
+### The Big Picture
+
+The system is split into two clear layers:
+
+### 1. PlayerInput - the Input Hub
+- Central place where all player input is received
+- Talks directly to Unity’s Input System
+- Does not contain gameplay logic
+- Calls methods on other scripts when input happens
+
+### 2. PlayerCamera - Example Feature Module
+- One example of a feature script
+- Receives clean data from PlayerInput
+- Handles its own logic and update timing
+- Knows nothing about input bindings or devices
+
+Think of it like this:
+
+Player Input Devices -> PlayerInput -> Feature Scripts (Camera, Movement, Combat, etc.)
+
+---
+
 ## Input Maps and Switching (Unity 6)
 
 Uses two independent action maps that the `PlayerInput` script can switch between at runtime.
@@ -79,44 +101,17 @@ This prevents mid-frame conflicts and ensures clean transitions.
 
 ---
 
-### The Big Picture
-
-The system is split into two clear layers:
-
-### 1. PlayerInput - the Input Hub
-- Central place where all player input is received
-- Talks directly to Unity’s Input System
-- Does not contain gameplay logic
-- Calls methods on other scripts when input happens
-
-### 2. PlayerCamera - Example Feature Module
-- One example of a feature script
-- Receives clean data from PlayerInput
-- Handles its own logic and update timing
-- Knows nothing about input bindings or devices
-
-Think of it like this:
-
-Player Input Devices -> PlayerInput -> Feature Scripts (Camera, Movement, Combat, etc.)
-
----
-
 ### What This Class Does
 
 - Defines action maps like Player
 - Exposes actions like Look, Move, Jump, etc.
 - Allows PlayerInput to subscribe to input events using code
-
-### Why This Matters
-
 - Keeps input strongly typed and compile-safe
 - Avoids string-based lookups
 - Makes input routing consistent across the project
 
 Once generated, this class is referenced only by PlayerInput.  
 Feature scripts (like PlayerCamera) never depend on it directly.
-
-
 
 ### How These Two Scripts Work Together
 
@@ -206,7 +201,7 @@ Feature scripts decide how it happens.
 
 ### Summary
 
-- PlayerInput is the single entry point for player input
+- PlayerInput is the single entry point and sealed class for player input
 - PlayerCamera is an example of a modular feature
 - New features follow the same structure
 - Input is routed, not pulled
