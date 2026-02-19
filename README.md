@@ -7,12 +7,12 @@ The two scripts shown here form a base interaction pattern that other gameplay s
 
 ### Generating the Required C# Input Actions Class
 
-This system depends on a generated C# class from Unity’s Input System. This class provides the strongly-typed actions used by PlayerInput.
+Dependent on a generated C# class from Unity’s Input System. 
 
 ### How to Generate It
 
 1. Open the Input Actions asset  
-   - In the Project window, double-click your .inputactions file (for example: InputSystem_Actions.inputactions).
+   - In Unity double-click .inputactions file.
 
 2. Enable C# class generation  
    - In the Inspector, check **Generate C# Class**.
